@@ -6,6 +6,8 @@ const app = dva();
 
 app.model(require("./models/users"));
 
+app.model(require("./models/login"));
+
 app.model(require("./models/persion"));
 
 // 2. Plugins
