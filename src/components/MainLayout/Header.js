@@ -9,6 +9,9 @@ function Header({ location }) {
       mode="horizontal"
       theme="dark"
     >
+      <Menu.Item key="/login">
+        <Link to="/login"><Icon type="frown-circle" />login</Link>
+      </Menu.Item>
       <Menu.Item key="/persion">
         <Link to="/persion"><Icon type="global" />global</Link>
       </Menu.Item>
@@ -17,9 +20,6 @@ function Header({ location }) {
       </Menu.Item>
       <Menu.Item key="/">
         <Link to="/"><Icon type="home" />Home</Link>
-      </Menu.Item>
-      <Menu.Item key="/404">
-        <Link to="/page-you-dont-know"><Icon type="frown-circle" />404</Link>
       </Menu.Item>
       <Menu.Item key="/antd">
         <a href="https://github.com/dvajs/dva" target="_blank">dva</a>

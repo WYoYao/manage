@@ -1,17 +1,12 @@
 import React from 'react';
 import { connect } from 'dva';
 import styles from './Login.css';
+import LoginComponent from '../components/Login/Login.js';
 
-function Login() {
-  return (
-    <div className={styles.normal}>
-      Route Component: Login
-    </div>
-  );
+
+function mapStateToProps({ login }) {
+
+  return login;
 }
 
-function mapStateToProps() {
-  return {};
-}
-
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps)(LoginComponent);
