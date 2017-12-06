@@ -1,3 +1,5 @@
+import * as loginService from '../services/login.js';
+
 
 export default {
   namespace: 'login',
@@ -29,6 +31,20 @@ export default {
 
     }
   },
-  effects: {},
+  effects: {
+    *login({ username, password, isCompany }) {
+
+      console.log(put);
+
+      yield call(loginService.login, { username, password, isCompany });
+      // yield put({
+      //   type: 'changeWord',
+      //   payload: {
+      //     username: "登录成功",
+      //     password: "password",
+      //   },
+      // });
+    },
+  },
   subscriptions: {},
 };

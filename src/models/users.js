@@ -16,7 +16,9 @@ export default {
     *fetch({ payload: { page = 1 } }, { call, put }) {
       console.log(`put`);
       console.log(put);
+      debugger;
       const { data, headers } = yield call(usersService.fetch, { page });
+      debugger;
       yield put({
         type: 'save',
         payload: {

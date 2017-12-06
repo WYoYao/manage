@@ -1,4 +1,4 @@
-import request from '../utils/request';
+import request from '../utils/request1';
 import { PAGE_SIZE } from '../constants';
 
 export function fetch({ page }) {
