@@ -1,0 +1,46 @@
+.normal{
+    display: flex;
+    height: 100%;
+    flex-flow:column;
+    justify-content:flex-start;
+    align-items:stretch;
+    border-right:1px solid transparent;
+}
+
+.logo{
+    margin: 30px 0;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.content{
+    flex-grow:1;
+    height: 500px;
+}
+
+.logoimg{
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+}
+
+.logotitle{
+    vertical-align: bottom;
+    font-size: 16px;
+    text-transform: uppercase;
+    display: inline-block;
+    color: #999;
+}
+
+.footer{
+    align-self:flex-end;
+    height: 50px;
+    margin:0 16px 0 24px;
+    line-height: 50px;
+}
+
+.themename{
+    color: #999;
+    margin-right: 20px;
+}

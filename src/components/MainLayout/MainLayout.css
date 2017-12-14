@@ -1,16 +1,45 @@
 
 .normal {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   height: 100%;
 }
 
 .content {
   flex: 1;
   display: flex;
+  flex-direction: column;
 }
 
 .main {
   padding: 0 8px;
   flex: 1 0 auto;
+  background: #ECF0F1;
+}
+
+.header{
+  display: flex;
+  flex-flow:row nowrap;
+  justify-content:space-between;
+  height: 50px;
+  line-height: 50px;
+  background: #fff;
+}
+
+.collapse{
+  /* align-self: flex-start; */
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.collapse:hover{
+  background: rgba(16, 142, 233, 0.15);
+  color: #108ee9;
+}
+
+.menus{
+  width: 256px;
 }

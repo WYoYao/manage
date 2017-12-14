@@ -1,4 +1,5 @@
 import * as loginService from '../services/login.js';
+import { routerRedux } from 'dva/router';
 
 
 export default {
@@ -28,22 +29,48 @@ export default {
       password = password != void 0 ? password : state.password;
 
       return { ...state, username, password }
+    },
+    // 登录失败
+    loginFail: function (state, reducer) {
+      console.log('登录失败');
 
-    }
+      return state;
+    },
+    // 登录的状态
+    changeLoading: function (state, { isLoading }) {
+      return { ...state, isLoading };
+    },
   },
   effects: {
-    *login({ username, password, isCompany }) {
+    *login({ username, password, isCompany }, { put, call, select }) {
 
-      console.log(put);
+      const res = yield call(loginService.login, { username, password, isCompany });
 
-      yield call(loginService.login, { username, password, isCompany });
-      // yield put({
-      //   type: 'changeWord',
-      //   payload: {
-      //     username: "登录成功",
-      //     password: "password",
-      //   },
-      // });
+      if (res.BaseResponse.Code == 1) {
+
+        // 登录成功跳转
+        yield put({
+          type: 'user/setUser',
+          payload: res.content,
+        });
+
+        yield put(routerRedux.push({
+          pathname: '/',
+        }))
+      } else {
+
+        // 失败后处理
+        yield put({
+          type: 'loginFail',
+          payload: res.BaseResponse.Message,
+        });
+      }
+
+      //  无论成功失败取消提交的loading
+      yield put({
+        type: 'changeLoading',
+        isLoading: false,
+      })
     },
   },
   subscriptions: {},

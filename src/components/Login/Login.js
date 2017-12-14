@@ -6,10 +6,6 @@ import LoginTab from './LoginTab/LoginTab.js';
 
 const ButtonGroup = Button.Group;
 
-function callback(key) {
-  console.log(key);
-}
-
 function Login(login) {
 
   let {
@@ -17,6 +13,7 @@ function Login(login) {
     dispatch,
     username,
     password,
+    isLoading,
   } = login;
 
   /**
@@ -24,12 +21,18 @@ function Login(login) {
    */
   const handlerSubmit = function () {
 
-    console.log({
+    dispatch({
+      type: 'login/changeLoading',
+      isLoading: true,
+    })
+
+
+    dispatch({
+      type: 'login/login',
       isCompany,
       username,
       password,
-    });
-
+    })
   }
 
   /**
@@ -66,7 +69,7 @@ function Login(login) {
                 </div>
               </div>
               <div className={styles.btnline}>
-                <Button size="large" type="primary" onClick={handlerSubmit} >登　录</Button>
+                <Button loading={isLoading} size="large" type="primary" onClick={handlerSubmit} >登　录</Button>
               </div>
             </div>
           </div>
