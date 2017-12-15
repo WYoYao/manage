@@ -26,6 +26,12 @@
   background: #fff;
 }
 
+.headerright{
+  display: flex;
+  flex-flow:row nowrap;
+  justify-content: flex-start;
+}
+
 .collapse{
   /* align-self: flex-start; */
   width: 50px;

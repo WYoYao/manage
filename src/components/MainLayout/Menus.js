@@ -47,7 +47,7 @@ export default function Menus({ location, islight, isCollapsed, dispatch }) {
           <Menu.Item key="3"><Icon type="user-add" /><span>人员管理</span></Menu.Item>
           <Menu.Item key="4"><Icon type="area-chart" /><span>排班管理</span></Menu.Item>
           <SubMenu key="sub1-2" disabled={!isCollapsed} title={<span><Icon type="appstore" /><span>设备空间</span></span>}>
-            <Menu.Item key="5"><Icon type="inbox" />设备管理</Menu.Item>
+            <Menu.Item key="5"><Link to='/equipment'><Icon type="inbox" />设备管理</Link></Menu.Item>
             <Menu.Item key="6"><Icon type="bank" />房间管理</Menu.Item>
             <Menu.Item key="7"><Icon type="copy" />设备通讯录</Menu.Item>
             <Menu.Item key="8"><Icon type="idcard" />打印设备房间名片</Menu.Item>

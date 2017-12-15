@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Redirect, routerRedux,Router } from 'dva/router';
+import { Switch, Route, Redirect, routerRedux, Router } from 'dva/router';
 import PropTypes from 'prop-types';
 import { connect } from 'dva';
 
@@ -8,29 +8,39 @@ import Users from "./routes/Users.js";
 import Persion from "./routes/Persion.js";
 import Login from "./routes/Login.js";
 
-function Routers({app,history}) {
-  
+import Equipment from "./routes/Equipment.js";
+
+function Routers({ app, history }) {
+
   // 获取所有的model 然后附加到对应的App
-  const routes=[
+  const routes = [
     {
-      path:'/login',
-      model:require('./models/login'),
-      component:require('./routes/Login'),
+      path: '/login',
+      model: require('./models/login'),
+      component: require('./routes/Login'),
+    },
+    {
+      path: '/equipment',
+      model: require('./models/equipment'),
+      component: require('./routes/Equipment'),
     }
   ];
 
-  routes.forEach(({model})=>{
+  routes.forEach(({ model }) => {
+
     app.model(model);
   })
 
   return (
     <Router history={history}>
-        <Route path="/" component={IndexPage} />
+      <Route path="/" component={IndexPage}>
         <Route path="/users" component={Users} />
         <Route path="/persion" component={Persion} />
         <Route path="/login" component={Login} />
-      </Router>
-      );
+        <Route path="/equipment" component={Equipment} />
+      </Route>
+    </Router>
+  );
 }
 
 export default Routers;
